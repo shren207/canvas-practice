@@ -4,12 +4,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Canvas 태그 배우기</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body></body>
+  <body>
+    <canvas id="myCanvas" width="480" height="320"></canvas>
+    <script src="app.js"></script>
+    <!-- <script src="app.ts"></script> -->
+    <!-- 위처럼 .ts로 쓰면 안된다. -->
+    <!-- app.ts를 컴파일한 app.js파일을 명시해야 한다. -->
+    <!-- 타입스크립트는 그 자체로 동작하지 않고, 자바스크립트로 컴파일되어야만 동작하기 때문이다. -->
+    <!-- 따라서 tsc -w를 입력해서 컴파일된 app.js파일을 <script> 태그에 명시하도록 하자. -->
+  </body>
 </html>
