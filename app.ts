@@ -3,25 +3,26 @@ const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
 //? type narrowing : https://youtu.be/iZjfnoF784k (애플코딩)
 
 let x = canvas.width / 2;
-let y = canvas.width - 30;
+let y = canvas.height - 30;
+let ballRadius = 10;
+let dx = 2;
+let dy = -2;
 
-const dx = 2;
-const dy = -2;
-
-function drawBall() {
+function drawBall(x: number, y: number, ballRadius: number) {
   ctx.beginPath();
-  ctx.arc(x, y, 10, 0, Math.PI * 2);
+  ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
   ctx.fillStyle = "#0095DD";
   ctx.fill();
   ctx.closePath();
 }
 
 function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height); // 추가된 코드
-  // clearRect() : 좌표로 표시된 사각형 내부에 그려진 모든 것을 지운다.
-  drawBall();
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawBall(x, y, ballRadius);
   x += dx;
   y += dy;
+  if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) dx = -dx;
+  if (y + dy > canvas.height - ballRadius || y + dy < ballRadius) dy = -dy;
 }
 
 setInterval(draw, 10);
